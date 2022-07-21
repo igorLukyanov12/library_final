@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'main:books_reciving_check' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="Введите имя читателя" name="name"><br>
+    <input type="text" placeholder="Введите фамилию читателя" name="surname"><br>
+    <button>OK</button>
+</form>
+</body>
+</html>

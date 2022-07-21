@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Registration</title>
+</head>
+<body>
+<form action="{% url 'main:main_page' %}">
+    <button>Вернуться на Главную страницу</button>
+</form><br>
+<form action="{% url 'main:redirect_to_main_page' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="title_russian"><span>Название на русском</span><br>
+    <input type="text" name="title_foreign"><span>Название на иностранном</span><br>
+    <input type="text" name="description"><span>Краткое описание книги</span><br>
+    {% for genre in genre %}
+    <input type="checkbox" name="genre" value="{{ genre.name }}">{{ genre.name }}<br>
+    {% endfor %}
+    <input type="number" name="price"><span>Цена</span><br>
+    <input type="number" name="cost_daily"><span>Ежедневная цена</span><br>
+    <input type="number" name="amount_ex"><span>Количество экземпляров</span><br>
+    {% for author in author %}
+    <input type="checkbox" name="author" value="{{ author.surname }}">{{ author.surname }}<br>
+    {% endfor %}
+    <input type="date" name="date_registration"><span>Дата регистрации</span><br>
+    <input type="number" name="number_of_pages"><span>Количество страниц</span><br>
+    <input type="date" name="year_of_publication"><span>Год публикации</span><br>
+    <input type="datetime-local" name="pubdate"><span>Дата публикации</span><br>
+    <button>OK</button>
+</form>
+
+</body>
+</html>

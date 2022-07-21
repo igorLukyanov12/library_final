@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Сведения о читателе: </p>
+<p>Имя - {{ cust.name }}</p>
+<p>Фамилия - {{ cust.surname }}</p>
+<p>Email - {{ cust.email }}</p>
+<p>Возраст - {{ cust.ages }}</p>
+<p>Пол - {{ cust.sex }}</p>
+<p>Номер паспорта - {{ cust.number_of_passport }}</p>
+<p>Адрес прожиця - {{ cust.place }}</p>
+<p>------------------------------------------------------------------------------------------------------------------------------</p>
+<p>Срок аренды книги 30 дней</p>
+<form action="{% url 'main:books_lending_final' %}" method="POST">
+    {% csrf_token %}
+<input type="date" name="date_lend" value="{{ time }}">
+<p>------------------------------------------------------------------------------------------------------------------------------</p>
+<p>Выберите книги, которые он хочет взять</p><br>
+    {% for i in books %}
+    {% if i.available_ex != 0 %}
+    <input type="checkbox" name="books_name" value="{{ i.title_russian }}">{{ i.title_russian }} | Ежедневный штраф за просрочку = {{ i.cost_daily }} | Предварительная стоимость книги = {{ i.price }} | Количество доступных экземпляров - {{ i.available_ex }}<br>
+    {% endif %}
+    {% if i.available_ex == 0 %}
+    <input type="checkbox" disabled>{{ i.title_russian }} | Ежедневный штраф за просрочку = {{ i.cost_daily }} | Предварительная стоимость книги = {{ i.price }} | Количество доступных экземпляров - {{ i.available_ex }}<br>
+    {% endif %}
+    {% endfor %}
+    <button>OK</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="{% url 'main:main_page' %}">
+    <button>Вернуться на Главную страницу</button>
+</form><br>
+
+<form action="{% url 'main:redirect_to_main_page' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="surname"><span>Фамилия</span><br>
+    <input type="text" name="name"><span>Имя</span><br>
+    <input type="text" name="second_name"><span>Отчество</span><br>
+    <input type="text" name="number_of_passport"><span>Номер паспорта</span><br>
+    <input type="email" name="email"><span>Email</span><br>
+    <input type="text" name="place"><span>Адрес проживания</span><br>
+    <input type="date" name="date_of_birthday"><span>Дата рождения</span><br>
+    {% for i in sex %}
+    <input type="radio" name="sex"><span>{{ i }}</span><br>
+    {% endfor %}
+    <input type="number" name="ages"><span>Возраст</span><br>
+
+    <button>OK</button>
+</form>
+
+</body>
+</html>

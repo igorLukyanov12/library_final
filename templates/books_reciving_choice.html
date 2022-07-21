@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Выберите книгу, которую хотите сдать:</p>
+        <form action="{% url 'main:books_reciving_explore' %}" method="POST">
+            {% csrf_token %}
+            <select name="books_choice" id="">
+            {% for i in arr %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+            </select><br>
+            <button>OK</button>
+        </form>
+</body>
+</html>

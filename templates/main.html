@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello</h1>
+<nav>
+    <ul>
+        <li><a href="{% url 'main:main_page' %}">Главная</a></li>
+        <li><a href="{% url 'main:book_reg' %}">Регистрация новой книги</a></li>
+        <li><a href="{% url 'main:book_list' %}">Список книг в библиотеке</a></li>
+        <li><a href="{% url 'main:reader_list' %}">Список читателей</a></li>
+        <li><a href="{% url 'main:reader_reg' %}">Регистрация нового читателя</a></li>
+        <li><a href="{% url 'main:books_lending' %}">Выдача книг читателю</a></li>
+        <li><a href="{% url 'main:books_reciving' %}">Приём книг от читателя</a></li>
+        <li><a href="{% url 'main:off_books' %}">Списание книг</a></li>
+        <li><a href="{% url 'main:profit' %}">Доходность библиотеки</a></li>
+    </ul>
+</nav>
+
+</body>
+</html>

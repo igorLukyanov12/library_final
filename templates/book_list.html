@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+    <link rel="stylesheet" href="{% static 'css/book_list.css'%}">
+</head>
+<body>
+<div class="div_book_header">
+<form action="{% url 'main:sort_title' %}" class="books_name">
+    <button>Наименование книги на русском</button>
+</form>
+<form action="{% url 'main:sort_books_genre' %}" class="genre">
+    <button>Жанр</button>
+</form>
+<form action="{% url 'main:sort_book_pub_year' %}" class="year">
+    <button>Год выпуска</button>
+</form>
+<form action="{% url 'main:sort_book_ex' %}" class="count_of_ex">
+    <button>Общее количество экземпляров</button>
+</form>
+<form action="{% url 'main:sort_book_ex' %}" class="available_ex">
+    <button>Количество экземпляров доступное для выдачи читателям</button>
+</form>
+</div>
+<div class="main_div">
+    {% for i in b %}
+            <div class="books_div">
+                <span class="books_span">{{ i.title_russian }}</span>
+                <span class="books_span">
+                    {% for j in i.genre.all %}
+                        {{ j }}<br>
+                    {% endfor %}
+                </span>
+                <span class="books_span">{{ i.year_of_publication.year }}</span>
+                <span class="books_span">{{ i.amount_ex }}</span>
+                <span class="books_span">{{ i.available_ex }}</span>
+            </div>
+    {% endfor %}
+</div>
+    <div class="div_button">
+        <form action="{% url 'main:back_book_list' %}">
+            <button class="button_back">Назад</button>
+        </form>
+        <form action="{% url 'main:next_book_list' %}">
+            <button class="button_next">Далее</button>
+        </form>
+    </div>
+</body>
+</html>

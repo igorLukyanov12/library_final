@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reader List</title>
+    <link rel="stylesheet" href="{% static 'css/reader_list.css'%}">
+</head>
+<body>
+<div class="div_reader_header">
+<form action="{% url 'main:sort_reader_surname' %}" class="books_name">
+    <button>Фамилия</button>
+</form>
+<form action="{% url 'main:sort_reader_name' %}" class="genre">
+    <button>Имя</button>
+</form>
+<form action="{% url 'main:sort_reader_date_of_birthday' %}" class="year">
+    <button>Дата рождения</button>
+</form>
+<form action="{% url 'main:sort_reader_address' %}" class="count_of_ex">
+    <button>Адрес</button>
+</form>
+<form action="{% url 'main:sort_reader_email' %}" class="available_ex">
+    <button>Email</button>
+</form>
+</div>
+
+<div class="main_div">
+    {% for i in reader %}
+            <div class="reader_div">
+                <span class="reader_span">{{ i.surname }}</span>
+                <span class="reader_span">{{ i.name }}</span>
+                <span class="reader_span">{{ i.date_of_birthday }}</span>
+                <span class="reader_span">{{ i.place }}</span>
+                <span class="reader_span">{{ i.email }}</span>
+            </div>
+    {% endfor %}
+
+</div>
+    <div class="div_button">
+        <form action="{% url 'main:back_reader_list' %}">
+            <button class="button_back">Назад</button>
+        </form>
+        <form action="{% url 'main:next_reader_list' %}">
+            <button class="button_next">Далее</button>
+        </form>
+    </div>
+
+</body>
+</html>

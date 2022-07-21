@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Выберите недочеты по книге {{ book_to_recive }}</p>
+    <form action="{% url 'main:books_reciveng_final_cost' %}" method="POST">
+        {% csrf_token %}
+        <input type="checkbox" name="mistake"><span>Вырваны страницы</span><br>
+        <input type="checkbox" name="mistake"><span>Натерта обложка</span><br>
+        <input type="checkbox" name="mistake"><span>Порван переплет</span><br>
+        <input type="checkbox" name="mistake"><span>Порвана сама книга или обложка</span><br>
+        <input type="checkbox" name="mistake"><span>Испорчены страницы</span><br>
+        <input type="date" name="date_rec" value="{{ time }}"><br>
+        <button>OK</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+.div_book_header{
+    margin: 0 0 0 10px;
+    display: flex;
+    border: solid 1px black;
+    width: 1450px;
+    height: 50px;
+}
+
+button {
+    width: 290px;
+    height: 50px;
+}
+
+
+.books_span{
+    width: 288px;
+    height: 50px;
+    text-align:center;
+    border: solid 1px black;
+    vertical-align: center;
+}
+
+.main_div{
+    margin: 0 0 0 10px;
+    border: solid 1px black;
+    width: 1450px;
+    height: auto;
+}
+
+.books_div{
+    display: flex;
+}
+
+.div_button{
+    display: flex;
+
+}
+.button_back{
+    margin: 0 10px 0 435px;
+}
+
+.button_next{
+    margin: 0 0 0 10px;
+}
